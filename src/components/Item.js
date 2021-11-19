@@ -3,7 +3,7 @@ import React from 'react'
 
 function TrackedItem(props) {
     const deleteitemHandler = (title) => {
-        axios.delete(`https://dry-chamber-26267.herokuapp.com/api/item/${title}`)
+        axios.delete(`https://price-tracker-back.herokuapp.com/api/item/${title}`)
             .then(res => {
                 console.log("Clicked from Grandchild");
                 

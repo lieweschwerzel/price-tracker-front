@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     document.title = "AH Price Tracker"
     if (mail !== '') {
-      axios.get(`https://dry-chamber-26267.herokuapp.com/api/item/${mail}`)
+      axios.get(`https://price-tracker-back.herokuapp.com/api/item/${mail}`)
         .then(res => {
           setItemList(res.data)
         })
@@ -30,7 +30,7 @@ function App() {
     if (mail && title !== '') {
       console.log("added")
       setIsLoading(true)
-      axios.post('https://dry-chamber-26267.herokuapp.com/api/item/', { 'mail': mail, 'title': title, 'price': 'none' })
+      axios.post('https://price-tracker-back.herokuapp.com/api/item/', { 'mail': mail, 'title': title, 'price': 'none' })
         .then(res => {
           setItemList([...ItemList, res.data])
           setIsLoading(false)
