@@ -10,7 +10,7 @@ function App() {
   const [title, setTitle] = useState('')
   const [mail, setMail] = useState('')
   const [msg, setMsg] = useState(false)
-  const [loading, setIsLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   // Read all items by mail
   useEffect(() => {
@@ -29,11 +29,11 @@ function App() {
     console.log("title: " + title)
     if (mail && title !== '') {
       console.log("added")
-      setIsLoading(true)
+      setLoading(true)
       axios.post('https://price-tracker-back.herokuapp.com/api/item/', { 'mail': mail, 'title': title, 'price': 'none' })
         .then(res => {
           setItemList([...ItemList, res.data])
-          setIsLoading(false)
+          setLoading(false)
         });
     }
     else console.log("not added")
