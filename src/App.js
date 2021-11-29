@@ -12,7 +12,7 @@ function App() {
   const [msg, setMsg] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Read all items by mail
+  // Read all items by mail axios.get(`https://price-tracker-back.herokuapp.com/api/item/${mail}`)
   useEffect(() => {
     document.title = "AH Price Tracker"
     if (mail !== '') {
@@ -30,8 +30,9 @@ function App() {
     if (mail && title !== '') {
       console.log("added")
       setLoading(true)
-      axios.post('https://price-tracker-back.herokuapp.com/api/item/', { 'mail': mail, 'title': title, 'price': 'none' })
+      axios.post('https://price-tracker-back.herokuapp.com/api/item/', { 'mail': mail, 'title': title, 'price': 'none', 'img_url': 'none' })
         .then(res => {
+          console.log(res.data)
           setItemList([...ItemList, res.data])
           setLoading(false)
         });
@@ -44,27 +45,32 @@ function App() {
   }
 
   return (
-    <div className="App list-group-item  justify-content-center align-items-center mx-auto" style={{ "width": "400px", "backgroundColor": "white", "marginTop": "15px" }} >
+    <div className="App list-group-item  justify-content-center align-items-center mx-auto" style={{ "backgroundColor": "white", "marginTop": "15px" }} >
       <h1 className="card text-white bg-primary mb-1" styleName="max-width: 20rem;">Price Tracker</h1>
       <h6 className="card text-white bg-primary mb-3">never miss an offer</h6>
       <div className="card-body">
-        <h5 className="card text-white bg-dark mb-2">Your Email</h5>
-        <span className="card-text">
-          <input className="mb-3 form-control desIn" onChange={event => setMail(event.target.value)} placeholder='Email' required />
-        </span>
-        <h5 className="card text-white bg-dark mb-2">Add Your Product</h5>
-        <span className="card-text">
-          <input type="text" className="mb-3 form-control titleIn" onChange={event => setTitle(event.target.value)} placeholder='Title' required />
-          <button className="btn btn-outline-primary mx-2 mb-4" style={{ 'borderRadius': '50px', "fontweight": "bold" }} onClick={addItemHandler} disabled={loading}>
-            {loading && (<i className="fa fa-refresh fa-spin" style={{ marginRight: "5px" }} />)}
-            {loading && <span>Adding..</span>}
-            {!loading && <span>Add</span>}
-          </button>
-        </span>
-        <h5 className="card text-white bg-primary mb-5">Your watched Products</h5>
-        <div >
+        <div className="main">
+          <h5 className="card text-white bg-dark mb-2">Your Email</h5>
+          <span className="card-text">
+            <input className="mb-3 form-control desIn" onChange={event => setMail(event.target.value)} placeholder='Email' required />
+          </span>
+          <h5 className="card text-white bg-dark mb-2">Add Your Product</h5>
+          <span className="card-text">
+            <input type="text" className="mb-3 form-control titleIn" onChange={event => setTitle(event.target.value)} placeholder='Title' />
+            <button className="btn btn-outline-primary mx-2 mb-4" style={{ 'borderRadius': '50px', "fontweight": "bold" }} onClick={addItemHandler} disabled={loading}>
+              {loading && (<i className="fa fa-refresh fa-spin" style={{ marginRight: "5px" }} />)}
+              {loading && <span>Adding..</span>}
+              {!loading && <span>Add</span>}
+            </button>
+          </span>
+        </div>
+        <div className="aside">
+             <h5 className="card text-white bg-primary mb-5">Your watched Products</h5>
+        <div className="item-list-view">
           <ItemView test={changeMessage} ItemList={ItemList} />
         </div>
+        </div>
+     
       </div>
       <h6 className="card text-dark py-1 mb-0" >Copyright 2021, All rights reserved &copy;</h6>
     </div>
