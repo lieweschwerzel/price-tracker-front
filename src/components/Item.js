@@ -24,7 +24,7 @@ function TrackedItem(props) {
         return (
             <div>
                 <p> 
-                   <button onClick={() => deleteitemHandler(props.item.title)} className="btn btn-outline-danger my-2 mx-2" style={{ 'borderRadius': '30px', flex:'1' }}>X</button>
+                   <button onClick={() => deleteitemHandler(props.item.title)} className="btn btn-outline-danger my-2 mx-2" style={{ 'borderRadius': '15px', flex:'1' }}>X</button>
                     <span style={{ fontWeight: 'bold, underline' , flex: 1, flexDirection: 'row'}}>
                         <img src={props.item.img_url} alt="ahimage" style={{width: '100px', height: '50%'}}/>
                        
