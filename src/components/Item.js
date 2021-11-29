@@ -10,12 +10,12 @@ function TrackedItem(props) {
             })
     }
 
-    if (!props.item.mail) {
+    if (!props.item.mail ) {
         return (
             <div>
                 <p>
                     <span>
-                    </span>
+                    </span>                            
                 </p>
             </div>
         )
@@ -23,12 +23,13 @@ function TrackedItem(props) {
     else {
         return (
             <div>
-                <p>
-                    <button onClick={() => deleteitemHandler(props.item.title)} className="btn btn-outline-danger my-2 mx-2" style={{ 'borderRadius': '30px', flex: '1' }}>X</button>
-                    <span style={{ fontWeight: 'bold, underline', flex: 1, flexDirection: 'row' }}>
-                        <img src={props.item.img_url} alt="ahimage" style={{ width: '100px', height: '50%' }} />
-
-                        {props.item.title}: €</span>{props.item.price}
+                <p> 
+                   <button onClick={() => deleteitemHandler(props.item.title)} className="btn btn-outline-danger my-2 mx-2" style={{ 'borderRadius': '30px', flex:'1' }}>X</button>
+                    <span style={{ fontWeight: 'bold, underline' , flex: 1, flexDirection: 'row'}}>
+                        <img src={props.item.img_url} alt="ahimage" style={{width: '100px', height: '50%'}}/>
+                       
+                    {props.item.title}: €</span>{props.item.price}
+                    
                     <hr></hr>
                 </p>
             </div>
