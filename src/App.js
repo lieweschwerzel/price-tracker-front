@@ -35,7 +35,6 @@ function App() {
           console.log(res.data)
           setItemList([...ItemList, res.data])
           setLoading(false)
-          setTitle('')
         });
     }
     else console.log("not added")
@@ -46,7 +45,7 @@ function App() {
   }
 
   return (
-    <div className="App list-group-item  justify-content-center align-items-center mx-auto" style={{ "backgroundColor": "white", "marginTop": "15px", "minHeight": "90vh" }} >
+    <div className="App list-group-item  justify-content-center align-items-center mx-auto" style={{ "backgroundColor": "white", "marginTop": "15px" }} >
       <h1 className="card text-white bg-primary mb-1" styleName="max-width: 20rem;">Price Tracker</h1>
       <h6 className="card text-white bg-primary mb-3">never miss an offer</h6>
       <div className="card-body">
@@ -73,7 +72,7 @@ function App() {
         </div>
      
       </div>
-      <h6 className=" col align-self-center" >Copyright 2021, All rights reserved &copy;</h6>
+      <h6 className="card text-dark py-1 mb-0" >Copyright 2021, All rights reserved &copy;</h6>
     </div>
   );
 }
