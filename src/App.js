@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="App list-group-item  justify-content-center align-items-center mx-auto" style={{ "backgroundColor": "white", "marginTop": "15px" }} >
-      <h1 className="card text-white bg-primary mb-1" styleName="max-width: 20rem;">Price Tracker</h1>
+      <h1 className="card text-white bg-primary mb-1" styleName="max-width: 20rem;">Ah.nl Price Tracker</h1>
       <h6 className="card text-white bg-primary mb-3">never miss an offer</h6>
       <div className="card-body">
         <div className="main">
